@@ -1,4 +1,4 @@
-import profile from '/Coding/ace360_assignment/Product Viewer/src/assets/profile.png'
+import profile from '../../assets/profile.png'
 import './navbar.css'
 const Navbar = () => {
   return (

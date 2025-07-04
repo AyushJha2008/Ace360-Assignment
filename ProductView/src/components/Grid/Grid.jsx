@@ -23,12 +23,17 @@ const Grid = () => {
                     <div className="product-head">
                         <h3>{product.title}</h3>
                     </div>
-                    <div>
+                    <div className="product-category">
+                        <p>{product.tags[0]}</p>
+                        <p>{product.tags[1]}</p>
+                    </div>
+                    <div className="product-rating">
                         <span>{product.rating}⭐</span>
-                        <span>{product.stock}</span>
+                        <span>{product.stock} stocks left</span>
                     </div>
                     <div className="product-price">
-                        <span>$ {product.price}</span>
+                        <p>$ {product.price}</p>
+                        <p>{product.discountPercentage}% off</p>
                     </div>
                 </div>
             ))}

@@ -1,8 +1,11 @@
 import React from 'react'
+import loginbg from '../../assets/loginbg.jpg'
 
 const Login = () => {
   return (
-    <div>Login</div>
+    <div>
+      <img src={loginbg} alt="" />
+    </div>
   )
 }
 

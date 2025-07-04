@@ -1,13 +1,24 @@
 import profile from '../../assets/profile.png'
 import './navbar.css'
+import {Link} from 'react-router-dom'
+
+
 const Navbar = () => {
   return (
     <div className='navbar'>
         <div className="navbar-left">
-            <span>Product Viewer</span>
+            <h3>Product Viewer</h3>
         </div>
+
+        <div className="search">
+          <input className="search-input" type="text" placeholder="Enter name of product" />
+        </div>
+
+
         <div className="navbar-right">
+          <Link to='/login'>
             <img src={profile} alt="" />
+          </Link>
         </div>
     </div>
   )

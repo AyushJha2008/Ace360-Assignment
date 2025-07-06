@@ -16,7 +16,7 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-  // For Sign In — use DummyJSON API
+  // For Sign In — used DummyJSON API
     if (signState === "Sign In") {
       try {
         const res = await fetch("https://dummyjson.com/auth/login", {
@@ -29,12 +29,12 @@ const Login = () => {
         });
         
         const data = await res.json();
-        if (res.ok) {
+        if (res.ok) { //on complete login
           console.log("Login success:", data);
           localStorage.setItem("token", data.token);
           alert("Login successful!");
           navigate("/");
-        } else {
+        } else {  //invalid credentials
           alert("Invalid login: " + data.message);
           navigate("/")
         }

@@ -4,6 +4,7 @@ import './grid.css'
 import { Link } from "react-router-dom";
 
 const Grid = ({searchTerm}) => {
+    // setSearchTerm is in navbar search input section
     const [products, setproducts] = useState([]);
 
     useEffect(()=>{
@@ -12,8 +13,9 @@ const Grid = ({searchTerm}) => {
         .then(data => setproducts(data.products))
         .catch(err => console.error('error fetching data:',err))
     },[]);
+    // filtering and searching logic
     const filteredProducts = products.filter(product =>
-    product.title.toLowerCase().includes(searchTerm?.toLowerCase() || ""));
+    product.title.toLowerCase().includes(searchTerm?.toLowerCase() || "")); 
     
   return (
     <div className='grid'>

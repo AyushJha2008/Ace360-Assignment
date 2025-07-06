@@ -1,11 +1,9 @@
 import profile from '../../assets/profile.png'
-import search from '../../assets/search.png'
 import './navbar.css'
 import {Link} from 'react-router-dom'
 
-
+// searchTerm in grid.jsx
 const Navbar = ({setSearchTerm}) => {
-  
 
   return (
     <div className='navbar'>

@@ -10,6 +10,7 @@ const Product = () => {
   useEffect(()=>{
     const fetchProduct = async () =>{
         try{
+            // each product seprately
             const res = await fetch(`https://dummyjson.com/products/${id}`);
             const data = await res.json();
             setProduct(data);

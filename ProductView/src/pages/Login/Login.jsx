@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import './login.css'
-import GoogleLogin from '../../../utility/GoogleLogin'
+import GoogleLogin from '../../utility/GoogleLogin'
 import { useNavigate } from 'react-router-dom'
 
 const Login = () => {
@@ -23,7 +23,7 @@ const Login = () => {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
-            username: formData.name,
+            username: formData.username,
             password: formData.password,
           }),
         });
@@ -44,9 +44,12 @@ const Login = () => {
     } else {
       alert("Sign up logic is not implemented (DummyJSON doesn't support sign-up).");
     }
+    console.log("Submitted:", {
+    username: formData.username,
+    password: formData.password,
+  });
+
   };
-
-
 
   return (
     <div className='login'>
@@ -64,7 +67,7 @@ const Login = () => {
           <input
             type="text"
             placeholder="username"
-            value={formData.name}
+            value={formData.username}
             onChange={(e) => setFormData({ ...formData, username: e.target.value })}
           />
           <input

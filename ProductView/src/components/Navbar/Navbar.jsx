@@ -1,9 +1,12 @@
 import profile from '../../assets/profile.png'
+import search from '../../assets/search.png'
 import './navbar.css'
 import {Link} from 'react-router-dom'
 
 
-const Navbar = () => {
+const Navbar = ({setSearchTerm}) => {
+  
+
   return (
     <div className='navbar'>
         <div className="navbar-left">
@@ -11,7 +14,9 @@ const Navbar = () => {
         </div>
 
         <div className="search">
-          <input className="search-input" type="text" placeholder="Enter name of product" />
+          <input className="search-input" 
+          type="text" placeholder="Enter name of product"
+          onChange={(e)=> setSearchTerm(e.target.value.toLowerCase())} />
         </div>
 
 

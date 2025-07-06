@@ -1,13 +1,16 @@
 import React from 'react'
 import Navbar from '../../components/Navbar/Navbar'
 import Grid from '../../components/Grid/Grid'
+import { useState } from 'react'
+
 // import './home.css'
 
 const Home = () => {
+  const [searchTerm, setSearchTerm] = useState("");
   return (
     <div className='home'>
-        <Navbar/>
-        <Grid/>
+        <Navbar setSearchTerm={setSearchTerm}/>
+        <Grid searchTerm={searchTerm}/>
     </div>
   )
 }

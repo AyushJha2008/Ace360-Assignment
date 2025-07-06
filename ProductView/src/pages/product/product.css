@@ -6,14 +6,23 @@
     flex-direction: column;
     justify-content: space-between;
     width: 55vw;
-    height: 100vh;
-    border-right: 3px solid blue;
+    border-right: 1px solid blue;
     padding: 1rem;
 }
 .left-head{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    text-align: center;
+}
+.left-head span{
+    border: 1px solid black;
+    border-radius: 8px;
+    padding: 5px 8px;
+    font-weight: bold;
+    background-color: rgb(204, 204, 253);
+    margin: 0.5rem;
+    font-size: small;
 }
 .prod-img img{
     width: 100%;
@@ -57,4 +66,29 @@
 }
 .comment span{
     margin-right: 1rem;
+}
+
+@media(max-width: 1024px){
+    .prod{
+        flex-direction: column;
+    }
+    .product-leftcont{
+        width: 100%;
+        border-right: none;
+    }
+    .left-head{
+        text-align: center;
+    }
+    .prod-img img{
+        width: 70%;
+        height: auto;
+        padding: 1rem;
+        margin: 0 auto;
+    }
+}
+@media(maxwidth: 768px){}
+@media(maxwidth: 480px){
+    .prod{
+        font-size: medium;
+    }
 }

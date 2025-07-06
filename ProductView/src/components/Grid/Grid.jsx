@@ -3,7 +3,7 @@ import { useState } from "react";
 import './grid.css'
 import { Link } from "react-router-dom";
 
-const Grid = () => {
+const Grid = ({searchTerm}) => {
     const [products, setproducts] = useState([]);
 
     useEffect(()=>{
@@ -12,13 +12,14 @@ const Grid = () => {
         .then(data => setproducts(data.products))
         .catch(err => console.error('error fetching data:',err))
     },[]);
-    console.log(products);
-
+    const filteredProducts = products.filter(product =>
+    product.title.toLowerCase().includes(searchTerm?.toLowerCase() || ""));
+    
   return (
     <div className='grid'>
         <div className="header"><h2>Tap to see more info</h2></div>
         <div className="product-grid">
-            {products.map(product =>(
+            {filteredProducts.map(product =>(
                 <Link to={`/product/${product.id}`} key={product.id}>
                 <div className="product">
                     <img src={product.thumbnail} alt={product.title} />

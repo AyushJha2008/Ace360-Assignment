@@ -23,3 +23,19 @@
     width: 2.3rem;
     border-radius: 50%;
 }
+
+
+@media(max-width:760px){
+    .search-input{
+        width: 20rem;
+        margin: 0 0.5rem;
+    }
+    .navbar{
+        padding: 8px 2rem;
+    }
+}
+@media(max-width:500px){
+    .search-input{
+        width: 12rem;
+    }
+}

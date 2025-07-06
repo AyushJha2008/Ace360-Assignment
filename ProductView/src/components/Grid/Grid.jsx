@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import './grid.css'
+import { Link } from "react-router-dom";
 
 const Grid = () => {
     const [products, setproducts] = useState([]);
@@ -18,7 +19,8 @@ const Grid = () => {
         <div className="header"><h2>Tap to see more info</h2></div>
         <div className="product-grid">
             {products.map(product =>(
-                <div className="product" key={product.id}>
+                <Link to={`/product/${product.id}`} key={product.id}>
+                <div className="product">
                     <img src={product.thumbnail} alt={product.title} />
                     <div className="product-head">
                         <h3>{product.title}</h3>
@@ -35,7 +37,7 @@ const Grid = () => {
                         <p>$ {product.price}</p>
                         <p>{product.discountPercentage}% off</p>
                     </div>
-                </div>
+                </div> </Link>
             ))}
         </div>
     </div>

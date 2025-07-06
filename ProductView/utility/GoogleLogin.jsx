@@ -1,7 +1,9 @@
 import { useEffect } from "react";
 import { jwtDecode } from "jwt-decode";
+import { useNavigate } from "react-router-dom";
 
 const GoogleLogin = () => {
+  const navigate = useNavigate();
   useEffect(() => {
     /* global google */
     if (window.google) {
@@ -25,6 +27,7 @@ const GoogleLogin = () => {
     const userObject = jwtDecode(response.credential);
     console.log("User Info:", userObject);
     localStorage.setItem("token", response.credential);
+    navigate("/")
   };
 
   return <div id="googleSignInDiv"></div>;

@@ -33,9 +33,10 @@ a {
     gap: 0.5rem;
     align-items: center;
     margin-bottom: 1.5rem;
+    height: 100%;
 }
 .product:hover{
-    border: 1px solid blue;
+    border: 1px solid rgb(150, 150, 230);
 }
 .product-head{
     font-size: large;

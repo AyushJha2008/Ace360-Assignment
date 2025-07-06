@@ -24,7 +24,7 @@ const Product = () => {
   if(!product) return <p>Product not found</p>
 
   return (
-    <div>
+    <div className='prod'>
         <div className="product-leftcont">
             <div className="left-head">
                 <span>{product.availabilityStatus}</span>
@@ -32,27 +32,39 @@ const Product = () => {
                 <span>{product.stock} left</span>
             </div>
             <div className="prod-img"><img src={product.images} alt="{product.title}" /></div>
+            <div className="prod-purchase">
+                <button>Buy now</button>
+                <button>Add to Cart</button>
+            </div>
         </div>
-      <div className="prod-desc"><p>{product.description}</p></div>
-      <div className="prod-price">
-        <span>{product.price}</span>
-        <span>{product.discountPercentage}%</span>
-      </div>
-      <div className="prod-ship">{product.shippingInformation}</div>
-      <div className="prod-warranty">
-        <p>{product.warrantyInformation}</p>
-        <p>{product.returnPolicy}</p>
-      </div>
-      <div className="prod-review">
-        <p>Rating: {product.rating}⭐</p>
-        <p>Reviews:</p>
-        <div className="comment">
-            <span>{product.reviews[0].reviewerName}</span>
-            <span>{product.reviews[0].date}</span>
-            <p>{product.reviews[0].rating}⭐</p>
-            <p>{product.reviews[0].comment}</p>
+        <div className="product-rightcont">
+            <div className="prod-desc"><p><b>Description:</b> {product.description}</p></div>
+            <div className="prod-ship"><b>Shipping Status: </b>{product.shippingInformation}</div>
+            <div className="prod-warranty">
+                <p><b>Warranty: </b>{product.warrantyInformation}</p>
+                <p><b>Return Policy: </b>{product.returnPolicy}</p>
+            </div>
+            <div className="prod-price">
+                <span><b>Price: </b> {product.price}$</span>
+                <span><b>Discount: </b> {product.discountPercentage}%</span>
+            </div>
+            <div><span className='overal-rate'><b>Rating: </b> {product.rating}/5 (rated by {product.reviews.length} Users)</span></div>
+            <div className="prod-review">
+                <p><b>Reviews:</b></p>
+                {product.reviews?.length > 0 ? (
+                    product.reviews.map((review, index) => (
+                        <div className="comment" key={index}>
+                            <span><b>{review.reviewerName}</b></span>
+                            <span>{new Date(review.date).toLocaleDateString('en-GB')}</span>
+                            <p>{review.rating}⭐</p>
+                            <p>{review.comment}</p>
+                        </div>
+                    ))
+                    ) : (
+                    <p>No reviews available.</p>
+                )}
+            </div>
         </div>
-      </div>
     </div>
   );
 };

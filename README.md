@@ -1,4 +1,4 @@
--## How to Run:
+## How to Run:
 
 - cd ProductView
 - npm run dev
